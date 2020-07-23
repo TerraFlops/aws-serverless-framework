@@ -24,11 +24,11 @@ variable "deployment_bucket_block_public_policy" {
 variable "deployment_bucket_prefix" {
   description = "When a specific deployment_bucket_name is not supplied, this optional prefix will be prepending to the deployment bucket name (if none supplied this will default to 'artifacts.serverless')"
   type = string
-  value = "artifacts.serverless"
+  default = "artifacts.serverless"
 }
 
 variable "deployment_bucket_suffix" {
   description = "When a specific deployment_bucket_name is not supplied, this optional suffix to be appended to the deployment bucket name"
   type = string
-  value = ""
+  default = ""
 }
