@@ -1,3 +1,7 @@
+# Retrieve the AWS account ID for use in the bucket name
+data "aws_caller_identity" "serverless_deployment_account" {
+}
+
 # Create IAM policy document allowing Serverless Framework enterprise to assume this role for deployments
 data "aws_iam_policy_document" "serverless_deployment_policy_assume_role" {
   statement {
@@ -39,10 +43,6 @@ resource "aws_iam_role_policy" "serverless_deployment_policy" {
   name = "ServerlessDeployment"
   role = aws_iam_role.serverless_deployment_role.name
   policy = data.aws_iam_policy_document.serverless_deployment_policy.json
-}
-
-# Retrieve the AWS account ID for use in the bucket name
-data "aws_caller_identity" "serverless_deployment_account" {
 }
 
 # Create IAM role that will be used by the Serverless framework when performing deployments in the account
