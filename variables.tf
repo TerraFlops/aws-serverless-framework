@@ -32,3 +32,13 @@ variable "deployment_bucket_suffix" {
   type = string
   default = ""
 }
+
+variable "create_deployment_bucket" {
+  type = bool
+  default = true
+}
+
+variable "create_iam_role" {
+  type = bool
+  default = true
+}
