@@ -42,7 +42,7 @@ data "aws_iam_policy_document" "serverless_deployment_policy" {
 resource "aws_iam_role_policy" "serverless_deployment_policy" {
   count = var.create_iam_role == true ? 1 : 0
   name = "ServerlessDeployment"
-  role = aws_iam_role.serverless_deployment_role.name
+  role = aws_iam_role.serverless_deployment_role[0].name
   policy = data.aws_iam_policy_document.serverless_deployment_policy.json
 }
 
