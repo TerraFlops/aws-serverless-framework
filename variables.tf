@@ -33,6 +33,12 @@ variable "deployment_bucket_suffix" {
   default = ""
 }
 
+variable "iam_role_prefix" {
+  description = "Optional prefix to apply to IAM role name"
+  type = string
+  default = ""
+}
+
 variable "create_deployment_bucket" {
   type = bool
   default = true
