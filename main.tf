@@ -49,12 +49,12 @@ resource "aws_iam_role_policy" "serverless_deployment_policy" {
 # Create IAM role that will be used by the Serverless framework when performing deployments in the account
 resource "aws_iam_role" "serverless_deployment_role" {
   count = var.create_iam_role == true ? 1 : 0
-  name = "ServerlessDeployment"
+  name = "${var.iam_role_prefix}ServerlessDeployment"
   description = "Role used by Serverless Framework for automated deployments in this account"
   assume_role_policy = data.aws_iam_policy_document.serverless_deployment_policy_assume_role.json
   force_detach_policies = true
   tags = {
-    Name = "ServerlessDeployment"
+    Name = "${var.iam_role_prefix}ServerlessDeployment"
   }
 }
 
